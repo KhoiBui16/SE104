@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CayGiaPhaModelStoreContainer" CdmEntityContainer="CayGiaPhaEntities2">
+    <EntitySetMapping Name="LoaiQuanHes">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.LoaiQuanHe">
+        <MappingFragment StoreEntitySet="LoaiQuanHe">
+          <ScalarProperty Name="MaLoaiQuanHe" ColumnName="MaLoaiQuanHe" />
+          <ScalarProperty Name="TenLoaiQuanHe" ColumnName="TenLoaiQuanHe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiThanhTiches">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.LoaiThanhTich">
+        <MappingFragment StoreEntitySet="LoaiThanhTich">
+          <ScalarProperty Name="MaLoaiThanhTich" ColumnName="MaLoaiThanhTich" />
+          <ScalarProperty Name="TenLoaiThanhTich" ColumnName="TenLoaiThanhTich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NgheNghieps">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.NgheNghiep">
+        <MappingFragment StoreEntitySet="NgheNghiep">
+          <ScalarProperty Name="MaNgheNghiep" ColumnName="MaNgheNghiep" />
+          <ScalarProperty Name="TenNgheNghiep" ColumnName="TenNgheNghiep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanHes">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.QuanHe">
+        <MappingFragment StoreEntitySet="QuanHe">
+          <ScalarProperty Name="MaThanhVien1" ColumnName="MaThanhVien1" />
+          <ScalarProperty Name="MaThanhVien2" ColumnName="MaThanhVien2" />
+          <ScalarProperty Name="MaLoaiQuanHe" ColumnName="MaLoaiQuanHe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueQuans">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.QueQuan">
+        <MappingFragment StoreEntitySet="QueQuan">
+          <ScalarProperty Name="MaQueQuan" ColumnName="MaQueQuan" />
+          <ScalarProperty Name="TenQueQuan" ColumnName="TenQueQuan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhTiches">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.ThanhTich">
+        <MappingFragment StoreEntitySet="ThanhTich">
+          <ScalarProperty Name="MaThanhVien" ColumnName="MaThanhVien" />
+          <ScalarProperty Name="MaLoaiThanhTich" ColumnName="MaLoaiThanhTich" />
+          <ScalarProperty Name="NgayPhatSinhThanhTich" ColumnName="NgayPhatSinhThanhTich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhViens">
+      <EntityTypeMapping TypeName="CayGiaPhaModel.ThanhVien">
+        <MappingFragment StoreEntitySet="ThanhVien">
+          <ScalarProperty Name="MaThanhVien" ColumnName="MaThanhVien" />
+          <ScalarProperty Name="MaThanhVienCu" ColumnName="MaThanhVienCu" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgayPhatSinh" ColumnName="NgayPhatSinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="Doi" ColumnName="Doi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Template riêng cho từng cột GridView -->
+    <DataTemplate x:Key="MaThanhVienTemplate">
+        <TextBlock Text="{Binding ThanhVienHienThi.MaThanhVien}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TenThanhVienTemplate">
+        <TextBlock Text="{Binding TenThanhVien}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MaThanhVienCuTemplate">
+        <TextBlock Text="{Binding MaThanhVienCu}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="TenThanhVienCuTemplate">
+        <TextBlock Text="{Binding TenThanhVienCu}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NgayPhatSinhTemplate">
+        <TextBlock Text="{Binding NgayPhatSinh}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NgaySinhTemplate">
+        <TextBlock Text="{Binding NgaySinh}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="GioiTinhTemplate">
+        <TextBlock Text="{Binding GioiTinh}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="DoiTemplate">
+        <TextBlock Text="{Binding Doi}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="DiaChiTemplate">
+        <TextBlock Text="{Binding DiaChi}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="TenNgheNghiepTemplate">
+        <TextBlock Text="{Binding TenNgheNghiep}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+    
+    <DataTemplate x:Key="TenQueQuanTemplate">
+        <TextBlock Text="{Binding TenQueQuan}" TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+    </DataTemplate>
+
+    <!-- Style chung cho GridViewColumnHeader để căn giữa -->
+    <Style TargetType="GridViewColumnHeader">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Style chung cho ListViewItem để Stretch nội dung -->
+    <Style TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+</ResourceDictionary>

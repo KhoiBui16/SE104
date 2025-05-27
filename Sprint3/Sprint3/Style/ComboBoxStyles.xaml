@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Style chung cho ComboBox -->
+    <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
+        <Setter Property="FontSize" Value="11.5"/>
+        <Setter Property="Padding" Value="5,5"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Background" Value="LightGray"/>
+    </Style>
+
+    <!-- Style cho ComboBox cho phép bỏ chọn và kế thừa ComboBoxStyle -->
+    <Style x:Key="ComboBoxNullableStyle" TargetType="ComboBox" BasedOn="{StaticResource ComboBoxStyle}">
+        <Setter Property="IsEditable" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Text" Value=""/>
+    </Style>
+</ResourceDictionary>

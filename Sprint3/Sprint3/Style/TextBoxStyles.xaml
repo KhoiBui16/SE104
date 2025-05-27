@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Style chung cho TextBox -->
+    <Style TargetType="TextBox" x:Key="TextBoxStyle">
+        <Setter Property="FontSize" Value="11.5"/>
+        <Setter Property="Padding" Value="5,5"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+    </Style>
+
+    <!--Style cho textBox MaThanhVien-->
+    <Style x:Key="TextBoxHighlightMaThanhVien" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding MaThanhVienInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="5"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Style cho textBox Doi-->
+    <Style x:Key="TextBoxHighlightDoi" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding DoiInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="5"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <!--Style cho textBox NgayPhatSinhTu-->
+    <Style x:Key="TextBoxHighlightNPTu" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding NgayPhatSinhTuInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Style cho textBox NgayPhatSinhDen-->
+    <Style x:Key="TextBoxHighlightNPDen" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding NgayPhatSinhDenInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    
+    <!--Style cho textBox NgaySinhTu-->
+    <Style x:Key="TextBoxHighlightNSTu" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding NgaySinhTuInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Style cho textBox NgaySinhDen-->
+    <Style x:Key="TextBoxHighlightNSDen" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding NgaySinhDenInvalid}" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

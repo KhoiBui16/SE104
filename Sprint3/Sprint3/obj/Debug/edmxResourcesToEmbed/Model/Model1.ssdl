@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CayGiaPhaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LoaiQuanHe">
+    <Key>
+      <PropertyRef Name="MaLoaiQuanHe" />
+    </Key>
+    <Property Name="MaLoaiQuanHe" Type="int" Nullable="false" />
+    <Property Name="TenLoaiQuanHe" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiThanhTich">
+    <Key>
+      <PropertyRef Name="MaLoaiThanhTich" />
+    </Key>
+    <Property Name="MaLoaiThanhTich" Type="int" Nullable="false" />
+    <Property Name="TenLoaiThanhTich" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NgheNghiep">
+    <Key>
+      <PropertyRef Name="MaNgheNghiep" />
+    </Key>
+    <Property Name="MaNgheNghiep" Type="int" Nullable="false" />
+    <Property Name="TenNgheNghiep" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuanHe">
+    <Key>
+      <PropertyRef Name="MaThanhVien1" />
+      <PropertyRef Name="MaThanhVien2" />
+    </Key>
+    <Property Name="MaThanhVien1" Type="int" Nullable="false" />
+    <Property Name="MaThanhVien2" Type="int" Nullable="false" />
+    <Property Name="MaLoaiQuanHe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QueQuan">
+    <Key>
+      <PropertyRef Name="MaQueQuan" />
+    </Key>
+    <Property Name="MaQueQuan" Type="int" Nullable="false" />
+    <Property Name="TenQueQuan" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThanhTich">
+    <Key>
+      <PropertyRef Name="MaThanhVien" />
+      <PropertyRef Name="MaLoaiThanhTich" />
+    </Key>
+    <Property Name="MaThanhVien" Type="int" Nullable="false" />
+    <Property Name="MaLoaiThanhTich" Type="int" Nullable="false" />
+    <Property Name="NgayPhatSinhThanhTich" Type="date" />
+  </EntityType>
+  <EntityType Name="ThanhVien">
+    <Key>
+      <PropertyRef Name="MaThanhVien" />
+    </Key>
+    <Property Name="MaThanhVien" Type="int" Nullable="false" />
+    <Property Name="MaThanhVienCu" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="NgayPhatSinh" Type="date" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+    <Property Name="QueQuan" Type="int" Nullable="false" />
+    <Property Name="NgheNghiep" Type="int" />
+    <Property Name="Doi" Type="int" />
+  </EntityType>
+  <Association Name="FK_QuanHe_LoaiQuanHe">
+    <End Role="LoaiQuanHe" Type="Self.LoaiQuanHe" Multiplicity="1" />
+    <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiQuanHe">
+        <PropertyRef Name="MaLoaiQuanHe" />
+      </Principal>
+      <Dependent Role="QuanHe">
+        <PropertyRef Name="MaLoaiQuanHe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHe_ThanhVien1">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="1" />
+    <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaThanhVien" />
+      </Principal>
+      <Dependent Role="QuanHe">
+        <PropertyRef Name="MaThanhVien1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuanHe_ThanhVien2">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="1" />
+    <End Role="QuanHe" Type="Self.QuanHe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaThanhVien" />
+      </Principal>
+      <Dependent Role="QuanHe">
+        <PropertyRef Name="MaThanhVien2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhTich_LoaiThanhTich">
+    <End Role="LoaiThanhTich" Type="Self.LoaiThanhTich" Multiplicity="1" />
+    <End Role="ThanhTich" Type="Self.ThanhTich" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiThanhTich">
+        <PropertyRef Name="MaLoaiThanhTich" />
+      </Principal>
+      <Dependent Role="ThanhTich">
+        <PropertyRef Name="MaLoaiThanhTich" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhTich_ThanhVien">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="1" />
+    <End Role="ThanhTich" Type="Self.ThanhTich" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaThanhVien" />
+      </Principal>
+      <Dependent Role="ThanhTich">
+        <PropertyRef Name="MaThanhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhVien_NgheNghiep">
+    <End Role="NgheNghiep" Type="Self.NgheNghiep" Multiplicity="0..1" />
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NgheNghiep">
+        <PropertyRef Name="MaNgheNghiep" />
+      </Principal>
+      <Dependent Role="ThanhVien">
+        <PropertyRef Name="NgheNghiep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhVien_QueQuan">
+    <End Role="QueQuan" Type="Self.QueQuan" Multiplicity="1" />
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QueQuan">
+        <PropertyRef Name="MaQueQuan" />
+      </Principal>
+      <Dependent Role="ThanhVien">
+        <PropertyRef Name="QueQuan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhVien_ThanhVienCu">
+    <End Role="ThanhVien" Type="Self.ThanhVien" Multiplicity="0..1" />
+    <End Role="ThanhVien1" Type="Self.ThanhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhVien">
+        <PropertyRef Name="MaThanhVien" />
+      </Principal>
+      <Dependent Role="ThanhVien1">
+        <PropertyRef Name="MaThanhVienCu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CayGiaPhaModelStoreContainer">
+    <EntitySet Name="LoaiQuanHe" EntityType="Self.LoaiQuanHe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiThanhTich" EntityType="Self.LoaiThanhTich" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NgheNghiep" EntityType="Self.NgheNghiep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuanHe" EntityType="Self.QuanHe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QueQuan" EntityType="Self.QueQuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThanhTich" EntityType="Self.ThanhTich" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThanhVien" EntityType="Self.ThanhVien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_QuanHe_LoaiQuanHe" Association="Self.FK_QuanHe_LoaiQuanHe">
+      <End Role="LoaiQuanHe" EntitySet="LoaiQuanHe" />
+      <End Role="QuanHe" EntitySet="QuanHe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHe_ThanhVien1" Association="Self.FK_QuanHe_ThanhVien1">
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+      <End Role="QuanHe" EntitySet="QuanHe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuanHe_ThanhVien2" Association="Self.FK_QuanHe_ThanhVien2">
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+      <End Role="QuanHe" EntitySet="QuanHe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhTich_LoaiThanhTich" Association="Self.FK_ThanhTich_LoaiThanhTich">
+      <End Role="LoaiThanhTich" EntitySet="LoaiThanhTich" />
+      <End Role="ThanhTich" EntitySet="ThanhTich" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhTich_ThanhVien" Association="Self.FK_ThanhTich_ThanhVien">
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+      <End Role="ThanhTich" EntitySet="ThanhTich" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhVien_NgheNghiep" Association="Self.FK_ThanhVien_NgheNghiep">
+      <End Role="NgheNghiep" EntitySet="NgheNghiep" />
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhVien_QueQuan" Association="Self.FK_ThanhVien_QueQuan">
+      <End Role="QueQuan" EntitySet="QueQuan" />
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhVien_ThanhVienCu" Association="Self.FK_ThanhVien_ThanhVienCu">
+      <End Role="ThanhVien" EntitySet="ThanhVien" />
+      <End Role="ThanhVien1" EntitySet="ThanhVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
